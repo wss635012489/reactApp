@@ -1,0 +1,74 @@
+.cook-book-box {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .nav {
+    flex: 0;
+    >div {
+      height: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--main-color);
+      color: #fff;
+      font-size: 18px;
+    }
+  }
+  .body {
+    display: flex;
+    flex: 1;
+    >div {
+      width: 100%;
+      .swiper-item {
+        height: 160px;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 36px;
+        user-select: none;
+      }
+      .customIndicator {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 4px 8px;
+        color: #ffffff;
+        border-radius: 4px;
+        user-select: none;
+      }
+      .hot-box {
+        background-color: #fff;
+        .name {
+          color: #999;
+        }
+        ul {
+          overflow: hidden;
+          border-top: 1px solid #eee;
+          li {
+            list-style: none;
+            float: left;
+            width: 25%;
+            text-align: center;
+            line-height: 36px;
+            &:nth-child(2n){
+              border-left: 1px solid #eee;
+              border-bottom: 1px solid #eee;
+            }
+            &:nth-child(2n - 1){
+              border-bottom: 1px solid #eee;
+            }
+            &:nth-child(2){
+              border-right: 1px solid #eee;
+            }
+            &:nth-child(6){
+              border-right: 1px solid #eee;
+            }
+          }
+        }
+      }
+    }
+  }  
+}

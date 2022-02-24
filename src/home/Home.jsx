@@ -1,20 +1,22 @@
 import React from 'react'
-import { NavBar, TabBar } from 'antd-mobile'
+import { TabBar } from 'antd-mobile'
 import {
   Route,
   Switch,
   useHistory,
   useLocation,
-  MemoryRouter as Router,
+   BrowserRouter as Router,
+   Redirect,
 } from 'react-router-dom'
 import {
   AppOutline,
-  MessageOutline,
-  UnorderedListOutline,
-  UserOutline,
+  AppstoreOutline,
+  CollectMoneyOutline,
 } from 'antd-mobile-icons'
 
-import styles from './home.less'
+import styles from './home.module.less'
+
+import CookBook from "./cookbook/Index"
 
 const Bottom = () => {
   const history = useHistory()
@@ -27,24 +29,19 @@ const Bottom = () => {
 
   const tabs = [
     {
-      key: '/home',
+      key: '/cookbook',
       title: '首页',
       icon: <AppOutline />,
     },
     {
-      key: '/todo',
-      title: '我的待办',
-      icon: <UnorderedListOutline />,
+      key: '/categray',
+      title: '分类',
+      icon: <AppstoreOutline />,
     },
     {
-      key: '/message',
-      title: '我的消息',
-      icon: <MessageOutline />,
-    },
-    {
-      key: '/me',
-      title: '个人中心',
-      icon: <UserOutline />,
+      key: '/more',
+      title: '更多',
+      icon: <CollectMoneyOutline />,
     },
   ]
 
@@ -59,25 +56,20 @@ const Bottom = () => {
 
 export default () => {
   return (
-    <Router initialEntries={['/home']}>
+    <Router>
       <div className={styles.app}>
-        <div className={styles.top}>
-          <NavBar>配合路由使用</NavBar>
-        </div>
         <div className={styles.body}>
           <Switch>
-            <Route exact path='/home'>
-              <Home />
+            <Route exact path='/cookbook'>
+              <CookBook />
             </Route>
-            <Route exact path='/todo'>
+            <Route exact path='/categray'>
               <Todo />
             </Route>
-            <Route exact path='/message'>
+            <Route exact path='/more'>
               <Message />
             </Route>
-            <Route exact path='/me'>
-              <PersonalCenter />
-            </Route>
+            <Redirect from='/' to="/cookbook"></Redirect>
           </Switch>
         </div>
         <div className={styles.bottom}>
@@ -88,9 +80,6 @@ export default () => {
   )
 }
 
-function Home() {
-  return <div>首页</div>
-}
 
 function Todo() {
   return <div>我的待办</div>
