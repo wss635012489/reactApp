@@ -4,12 +4,14 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",
+    "@babel/plugin-proposal-decorators": "^7.17.2",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "antd-mobile": "^5.1.0",
+    "axios": "^0.26.0",
     "babel-jest": "^27.4.2",
     "babel-loader": "^8.2.3",
     "babel-plugin-named-asset-import": "^0.3.8",
@@ -47,8 +49,11 @@
     "react-app-polyfill": "^3.0.0",
     "react-dev-utils": "^12.0.0",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6",
     "react-refresh": "^0.11.0",
     "react-router-dom": "^5.1.2",
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1",
     "resolve": "^1.20.0",
     "resolve-url-loader": "^4.0.0",
     "sass-loader": "^12.3.0",
@@ -67,7 +72,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "mock": "json-server ./mock/index.js -p 9000 -r ./mock/routes.json"
   },
   "eslintConfig": {
     "extends": [
@@ -79,17 +85,20 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "ie 11"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      ">0.2%",
+      "not dead",
+      "not op_mini all",
+      "ie 11"
     ]
   },
   "devDependencies": {
     "babel-plugin-import": "^1.13.3",
-    "customize-cra": "^1.0.0"
+    "customize-cra": "^1.0.0",
+    "json-server": "^0.17.0"
   },
   "jest": {
     "roots": [
@@ -141,6 +150,14 @@
     "resetMocks": true
   },
   "babel": {
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
+    ],
     "presets": [
       "react-app"
     ]

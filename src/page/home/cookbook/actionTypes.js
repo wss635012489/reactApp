@@ -1,0 +1,1 @@
+export const setHotList = "home/cookbook/setHotList"

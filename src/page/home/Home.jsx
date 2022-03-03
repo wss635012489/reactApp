@@ -16,7 +16,7 @@ import {
 
 import styles from './home.module.less'
 
-import CookBook from "./cookbook/Index"
+import {CookBook} from "./cookbook"
 
 const Bottom = () => {
   const history = useHistory()
