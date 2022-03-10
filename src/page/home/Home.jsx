@@ -17,6 +17,8 @@ import {
 import styles from './home.module.less'
 
 import {CookBook} from "./cookbook"
+import {CateGary} from "./categary"
+import Self from './self/Index'
 
 const Bottom = () => {
   const history = useHistory()
@@ -39,8 +41,8 @@ const Bottom = () => {
       icon: <AppstoreOutline />,
     },
     {
-      key: '/more',
-      title: '更多',
+      key: '/self',
+      title: '个人中心',
       icon: <CollectMoneyOutline />,
     },
   ]
@@ -64,10 +66,10 @@ export default () => {
               <CookBook />
             </Route>
             <Route exact path='/categray'>
-              <Todo />
+              <CateGary></CateGary>
             </Route>
-            <Route exact path='/more'>
-              <Message />
+            <Route exact path='/self'>
+              <Self></Self>
             </Route>
             <Redirect from='/' to="/cookbook"></Redirect>
           </Switch>
@@ -81,14 +83,3 @@ export default () => {
 }
 
 
-function Todo() {
-  return <div>我的待办</div>
-}
-
-function Message() {
-  return <div>我的消息</div>
-}
-
-function PersonalCenter() {
-  return <div>个人中心</div>
-}

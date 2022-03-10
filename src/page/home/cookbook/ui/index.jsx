@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import { setHotListDataSync } from '../actionCeator'
 import Search from "@/components/search/Index"
 
-const colors = ['#ace0ff', '#bcffbd', '#e4fabd', '#ffcfac']
 const hotClass = ['家常菜','素菜','粥','汤','川菜','早餐','清淡','麻辣']
 
 @connect(

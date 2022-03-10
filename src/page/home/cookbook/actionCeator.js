@@ -6,7 +6,7 @@ function setHotListData(list){
     list
   }
 }
-function setHotListDataSync(url){
+function setHotListDataSync(){
   return async (dispatch) => {
     const reslut = await get("/api/hotList")
     dispatch(setHotListData(reslut))

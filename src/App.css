@@ -24,3 +24,29 @@ li {
 .adm-tab-bar-item-icon svg {
   font-size: 18px;
 }
+.my-flex {
+  display: flex;
+  -webkit-display: flex;
+}
+.my-flex-1 {
+  flex: 1;
+  -webkit-flex: 1;
+}
+.y-center {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.x-center {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.between {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
