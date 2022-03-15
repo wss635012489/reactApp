@@ -2,11 +2,13 @@ import React,{Component} from 'react'
 import './index.less'
 import {Swiper,Space } from 'antd-mobile'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { setHotListDataSync } from '../actionCeator'
 import Search from "@/components/search/Index"
 
 const hotClass = ['家常菜','素菜','粥','汤','川菜','早餐','清淡','麻辣']
 
+@withRouter
 @connect(
   (state) => {
     return {
@@ -25,6 +27,18 @@ class Index extends Component {
   componentDidMount(){
     this.props.loadData()
   }
+
+  goList = (title) => {
+    return () => {
+      this.props.history.push('/list',{title})
+    }
+  }
+  goDetil = (title) => {
+    return () => {
+      this.props.history.push('/detail',{title})
+    }
+  }
+
   render(){
     const {list} = this.props
     return (
@@ -61,7 +75,7 @@ class Index extends Component {
                 {
                   hotClass.map((val,index) => {
                     return (
-                      <li key={index}>
+                      <li key={index} onClick={this.goList(val)}>
                         {val}
                       </li>
                     )
@@ -74,7 +88,7 @@ class Index extends Component {
               <ul>
                 {
                   list.length > 0 && list.map((item,index) => {
-                    return <li key={index}>
+                    return <li key={index} onClick={this.goDetil(item.title)}>
                       <img src={item.imgUrl} alt="" />
                       <div>
                         <div>{item.title}</div>

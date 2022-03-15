@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import './index.less'
 import Search from "@/components/search/Index"
 import {get} from "@a/http"
+import { useHistory } from 'react-router-dom'
 
 export default function Index() {
   const [navType,setNavType] = useState('category')
   const [menu,setMenu] = useState('')
   const [curMenu,setCurMenu] = useState('')
   const [cat,setCat] = useState('')
+  const history = useHistory()
   useEffect(() => {
     get('/api/category').then(res => {
      // console.log(res)
@@ -53,7 +55,7 @@ export default function Index() {
           <ul>
             {
               cat && cat[navType][curMenu] && cat[navType][curMenu].map((item,index) => {
-                return <li key={index}>{item}</li>
+                return <li key={index} onClick={() => {history.push('/list',{title:item})}}>{item}</li>
               })
             }
           </ul>

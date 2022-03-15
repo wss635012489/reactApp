@@ -5,8 +5,7 @@ import {
   Switch,
   useHistory,
   useLocation,
-   BrowserRouter as Router,
-   Redirect,
+  Redirect
 } from 'react-router-dom'
 import {
   AppOutline,
@@ -58,7 +57,7 @@ const Bottom = () => {
 
 export default () => {
   return (
-    <Router>
+    <>
       <div className={styles.app}>
         <div className={styles.body}>
           <Switch>
@@ -78,7 +77,7 @@ export default () => {
           <Bottom />
         </div>
       </div>
-    </Router>
+    </>
   )
 }
 

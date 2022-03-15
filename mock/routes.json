@@ -1,4 +1,5 @@
 {
   "/api/hotList": "/hotList",
-  "/api/category": "/category"
+  "/api/category": "/category",
+  "/api/list": "/list"
 }
